@@ -1,4 +1,5 @@
 import Search from "./Search";
+import Products from "./Products";
 
 export default function Main() {
 	return (
@@ -8,6 +9,7 @@ export default function Main() {
 					<h2 className="text-[3.2rem] font-bold">Все кроссовки</h2>
 					<Search />
 				</div>
+				<Products />
 			</div>
 		</main>
 	);
