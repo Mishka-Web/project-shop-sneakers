@@ -2,10 +2,10 @@ import Search from "./Search";
 
 export default function Main() {
 	return (
-		<main className="flex flex-col">
+		<main className="flex flex-col pt-[4.5rem] pb-[7.2rem]">
 			<div className="container">
-				<div className="flex items-center justify-between flex-wrap gap-4">
-					<h2>Все кроссовки</h2>
+				<div className="flex items-start justify-between flex-wrap gap-4">
+					<h2 className="text-[3.2rem] font-bold">Все кроссовки</h2>
 					<Search />
 				</div>
 			</div>
