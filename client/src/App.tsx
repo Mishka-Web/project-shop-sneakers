@@ -1,9 +1,9 @@
-import Products from './components/Products.tsx';
+import Header from './components/Header';
 
 function App() {
 	return (
-		<div className="container py-24">
-			<Products />
+		<div className='container'>
+			<Header />
 		</div>
 	);
 }
