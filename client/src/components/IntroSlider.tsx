@@ -14,7 +14,7 @@ export default function IntroSlider() {
 				modules={[Mousewheel]}
 				spaceBetween={64}
 				slidesPerView={1}
-				speed={1200}
+				speed={1000}
 				mousewheel
 				className="overflow-hidden rounded-[2rem] will-change-transform"
 			>
