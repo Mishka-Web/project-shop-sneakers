@@ -7,7 +7,6 @@ export default function HomePage() {
 	return (
 		<>
 			<Helmet>
-				<meta charSet="utf-8" />
 				<title>Главная</title>
 			</Helmet>
 			<main className="flex flex-col pt-[4.5rem] pb-[7.2rem]">
