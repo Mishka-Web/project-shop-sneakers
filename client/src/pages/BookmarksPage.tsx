@@ -1,13 +1,12 @@
-import Header from "../components/Header";
-import Main from "../components/Main";
-import SideMenu from "../components/SideMenu";
+import { Helmet } from "react-helmet";
 
 export default function BookmarksPage() {
 	return (
 		<>
-			<Header />
-			<Main />
-			<SideMenu />
+			<Helmet>
+				<meta charSet="utf-8" />
+				<title>Мои закладки</title>
+			</Helmet>
 		</>
 	);
 }

@@ -8,7 +8,7 @@ export default function HomePage() {
 		<>
 			<Helmet>
 				<meta charSet="utf-8" />
-				<title>My Title</title>
+				<title>Главная</title>
 			</Helmet>
 			<main className="flex flex-col pt-[4.5rem] pb-[7.2rem]">
 				<div className="container">
