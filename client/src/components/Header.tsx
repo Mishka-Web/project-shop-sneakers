@@ -4,8 +4,8 @@ export default function Header() {
 	return (
 		<header className="border-b border-[#EAEAEA]">
 			<div className="container">
-				<div className="flex items-center justify-between">
-					<div className="flex items-center h-[12.8rem]">
+				<div className="flex items-center justify-between flex-wrap h-[12.8rem]">
+					<div className="flex items-center">
 						<div className="flex items-center gap-[1.6rem]">
 							<img
 								className="w-[4rem] h-[4rem] object-contain"
