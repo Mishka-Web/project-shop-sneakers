@@ -7,7 +7,7 @@ export default function ProdCard() {
 
 	const bookmarkClass = bookmark
 		? "flex items-center justify-center p-[0.8rem] border border-[#F8F8F8] rounded-[0.7rem] absolute top-[0.8rem] left-0 z-30 transition-all bg-[#FEF0F0] border-[#fff] fill-[#FF8585] stroke-[#FF8585]"
-		: "flex items-center justify-center p-[0.8rem] border border-[#F8F8F8] rounded-[0.7rem] absolute top-[0.8rem] left-0 z-30 hover:border-[#e1e1e1] hover:stroke-[#c9c9c9] transition-all stroke-[#EAEAEA] fill-[#fff]";
+		: "flex items-center justify-center p-[0.8rem] border border-[#EAEAEA] rounded-[0.7rem] absolute top-[0.8rem] left-0 z-30 hover:border-[#e1e1e1] hover:stroke-[#c4c4c4] transition-all duration-[400ms] stroke-[#EAEAEA] fill-[#fff]";
 
 	return (
 		<article className="pt-[2rem] pb-[3.4rem] pr-[2.9rem] pl-[3rem] border border-[#F3F3F3] rounded-[3rem] bg-[#fff] will-change-transform transition-all duration-[400ms] hover:border-[#F8F8F8] hover:shadow-[0_1.4rem_3rem_0_rgba(0,0,0,0.05)] hover:translate-y-[-1rem]">
