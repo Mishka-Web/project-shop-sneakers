@@ -1,4 +1,4 @@
-// import logo from '../assets/logo';
+import logo from '../assets/images/logo.png';
 
 export default function Header() {
 	return (
@@ -6,7 +6,7 @@ export default function Header() {
 			<header>
 				<div className="container">
 					<div className="flex items-center gap-[1.6rem]">
-						{/* <img src={logo} alt="" /> */}
+						<img className='w-[4rem] object-contain' src={logo} alt="" />
 					</div>
 				</div>
 			</header>
