@@ -13,10 +13,10 @@ export default function Header() {
 							title="Sneakers"
 						/>
 						<div className="flex flex-col">
-							<h1 className="text-[2rem] font-bold">
-								REACT SNEAKERS
+							<h1 className="text-[2rem] font-bold uppercase">
+								react sneakers
 							</h1>
-							<h3 className="text-[1.4rem]">
+							<h3 className="text-[#9D9D9D]">
 								Магазин лучших кроссовок
 							</h3>
 						</div>
