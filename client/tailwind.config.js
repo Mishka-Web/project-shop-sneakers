@@ -8,7 +8,7 @@ export default {
 		extend: {
 			backgroundImage: {
 				"gradient-lime": "linear-gradient(to top, #89F09C 0%, #3CC755 100%)"
-			}
+			},
 		},
 		colors: {
 			"DEFAULT": "#000000",
@@ -23,7 +23,7 @@ export default {
 		},
 		container: {
 			center: true,
-			padding: "15px"
+			padding: "12px"
 		}
 	},
 	plugins: [],
