@@ -16,8 +16,7 @@
 
 html,
 body {
-	display: flex;
-	flex-direction: column;
+	height: 100%;
 }
 
 body {
@@ -27,11 +26,14 @@ body {
 	background-color: #e7f6ff;
 }
 
-.main {
-	flex: 1 1 auto;
+#root {
+	margin-block-start: 8.5rem;
 }
 
 .wrapper {
 	background-color: #fff;
-	margin-block-start: 8.5rem;
+	padding-inline-start: 4.5rem;
+	padding-inline-end: 6rem;
+	border-top-right-radius: 2rem;
+	border-top-left-radius: 2rem;
 }
