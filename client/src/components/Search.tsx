@@ -1,7 +1,7 @@
 export default function Search() {
 	return (
-		<form className="flex items-center text-[#C4C4C4] gap-[1.375rem] border-spacing-[1rem] pl-[1.8rem] pr-[0.6rem] border-[#F3F3F3]" name="form-search">
-			<button className="inline-flex w-[1.425rem] h-[1.425rem] object-contain" type="button">
+		<form className="flex items-center gap-[1.375rem] pl-[1.8rem] pr-[1rem] border border-[#F3F3F3] rounded-[1rem]" name="form-search">
+			<span className="inline-flex w-[1.425rem] h-[1.425rem] object-contain">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="16"
@@ -16,8 +16,8 @@ export default function Search() {
 						stroke-linecap="round"
 					/>
 				</svg>
-			</button>
-			<input className="w-full h-[4.5rem]" type="text" placeholder="Поиск..." />
+			</span>
+			<input className="w-full h-[4.5rem] placeholder:text-[#C4C4C4] outline-none" type="text" placeholder="Поиск..." />
 		</form>
 	);
 }
