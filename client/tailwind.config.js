@@ -10,6 +10,7 @@ export default {
 				"gradient-lime": "linear-gradient(to top, #89F09C 0%, #3CC755 100%)"
 			}
 		},
+		fontFamily: {},
 		colors: {
 			"DEFAULT": "#000000",
 			"green": {
@@ -17,7 +18,8 @@ export default {
 				600: "#8BB43C"
 			},
 			"red": {
-				"light": "#FF8585"
+				50: "#FEF0F0",
+				500: "#FF8585"
 			}
 		},
 		container: {
