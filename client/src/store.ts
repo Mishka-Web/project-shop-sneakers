@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
-interface CounterState {
+interface VisibleState {
 	isVisible: boolean;
 	visible: () => void;
 	unVisible: () => void;
 }
 
-export const useCounterStore = create<CounterState>((set) => ({
+export const useVisibleStore = create<VisibleState>((set) => ({
 	isVisible: false,
 	visible: () => set(() => ({ isVisible: true })),
 	unVisible: () => set(() => ({ isVisible: false })),

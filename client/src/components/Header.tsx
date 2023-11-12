@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
+import { useVisibleStore } from "../store";
 import logo from "../assets/images/logo.png";
 
 export default function Header() {
+	const { visible } = useVisibleStore();
+
 	return (
 		<header className="border-b border-[#EAEAEA]">
 			<div className="container">
@@ -30,6 +33,7 @@ export default function Header() {
 						<button
 							className="inline-flex items-center gap-[1rem]"
 							type="button"
+							onClick={visible}
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
