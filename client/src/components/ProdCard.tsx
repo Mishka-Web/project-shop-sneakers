@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IProduct } from "../models";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 export default function ProdCard({ data }: IProduct) {
 	const [bookmark, setBookmark] = useState(!!data.isActive);
@@ -12,27 +14,29 @@ export default function ProdCard({ data }: IProduct) {
 	return (
 		<article className="pt-[2rem] pb-[3.4rem] pr-[2.9rem] pl-[3rem] border border-[#F3F3F3] rounded-[3rem] bg-[#fff] will-change-transform transition-all duration-[400ms] hover:border-[#F8F8F8] hover:shadow-[0_1.4rem_3rem_0_rgba(0,0,0,0.05)] hover:translate-y-[-1rem]">
 			<div className="relative">
-				<button
-					className={bookmarkClass}
-					type="button"
-					onClick={() => setBookmark(!bookmark)}
-				>
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="16"
-						height="16"
-						viewBox="0 0 16 16"
+				<Tippy content={<span>{bookmark ? "Убрать" : "В закладки"}</span>} placement="right">
+					<button
+						className={bookmarkClass}
+						type="button"
+						onClick={() => setBookmark(!bookmark)}
 					>
-						<path
-							d="M13.8609 3.07455C13.5204 2.73389 13.1161 2.46365 12.6711 2.27927C12.2261 2.0949 11.7492 2 11.2675 2C10.7859 2 10.3089 2.0949 9.86396 2.27927C9.41898 2.46365 9.0147 2.73389 8.67419 3.07455L7.96753 3.78122L7.26086 3.07455C6.57307 2.38676 5.64022 2.00036 4.66753 2.00036C3.69484 2.00036 2.76199 2.38676 2.07419 3.07455C1.3864 3.76235 1 4.69519 1 5.66788C1 6.64057 1.3864 7.57342 2.07419 8.26122L2.78086 8.96788L7.96753 14.1546L13.1542 8.96788L13.8609 8.26122C14.2015 7.92071 14.4718 7.51643 14.6561 7.07145C14.8405 6.62648 14.9354 6.14954 14.9354 5.66788C14.9354 5.18623 14.8405 4.70929 14.6561 4.26431C14.4718 3.81934 14.2015 3.41505 13.8609 3.07455Z"
-							stroke-width="1.2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						/>
-					</svg>
-				</button>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="16"
+							height="16"
+							viewBox="0 0 16 16"
+						>
+							<path
+								d="M13.8609 3.07455C13.5204 2.73389 13.1161 2.46365 12.6711 2.27927C12.2261 2.0949 11.7492 2 11.2675 2C10.7859 2 10.3089 2.0949 9.86396 2.27927C9.41898 2.46365 9.0147 2.73389 8.67419 3.07455L7.96753 3.78122L7.26086 3.07455C6.57307 2.38676 5.64022 2.00036 4.66753 2.00036C3.69484 2.00036 2.76199 2.38676 2.07419 3.07455C1.3864 3.76235 1 4.69519 1 5.66788C1 6.64057 1.3864 7.57342 2.07419 8.26122L2.78086 8.96788L7.96753 14.1546L13.1542 8.96788L13.8609 8.26122C14.2015 7.92071 14.4718 7.51643 14.6561 7.07145C14.8405 6.62648 14.9354 6.14954 14.9354 5.66788C14.9354 5.18623 14.8405 4.70929 14.6561 4.26431C14.4718 3.81934 14.2015 3.41505 13.8609 3.07455Z"
+								stroke-width="1.2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							/>
+						</svg>
+					</button>
+				</Tippy>
 				<img
-					className="w-full object-contain object-center h-[22.5rem]"
+					className="w-[92.5%] mx-auto object-contain object-center h-[18.5rem]"
 					src={data.image.src}
 					alt={data.image.alt}
 					title={data.image.title}
@@ -117,33 +121,35 @@ export default function ProdCard({ data }: IProduct) {
 							</svg>
 						</button>
 					) : (
-						<button
-							className="flex"
-							type="button"
-							onClick={() => setAdded(!added)}
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="32"
-								height="32"
-								viewBox="0 0 32 32"
-								fill="none"
+						<Tippy content={<span>В корзину</span>} placement="bottom">
+							<button
+								className="flex"
+								type="button"
+								onClick={() => setAdded(!added)}
 							>
-								<rect
-									x="0.5"
-									y="0.5"
-									width="31"
-									height="31"
-									rx="7.5"
-									fill="white"
-									stroke="#F2F2F2"
-								/>
-								<path
-									d="M20.6653 15.1312H17.2021V11.6682C17.2021 10.3328 15.1311 10.3328 15.1311 11.6682V15.1312H11.668C10.3329 15.1312 10.3329 17.2022 11.668 17.2022H15.1311V20.6652C15.1311 22.0005 17.2021 22.0005 17.2021 20.6652V17.2022H20.6653C22.0005 17.2022 22.0005 15.1312 20.6653 15.1312Z"
-									fill="#D3D3D3"
-								/>
-							</svg>
-						</button>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="32"
+									height="32"
+									viewBox="0 0 32 32"
+									fill="none"
+								>
+									<rect
+										x="0.5"
+										y="0.5"
+										width="31"
+										height="31"
+										rx="7.5"
+										fill="white"
+										stroke="#F2F2F2"
+									/>
+									<path
+										d="M20.6653 15.1312H17.2021V11.6682C17.2021 10.3328 15.1311 10.3328 15.1311 11.6682V15.1312H11.668C10.3329 15.1312 10.3329 17.2022 11.668 17.2022H15.1311V20.6652C15.1311 22.0005 17.2021 22.0005 17.2021 20.6652V17.2022H20.6653C22.0005 17.2022 22.0005 15.1312 20.6653 15.1312Z"
+										fill="#D3D3D3"
+									/>
+								</svg>
+							</button>
+						</Tippy>
 					)}
 				</div>
 			</section>
