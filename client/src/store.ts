@@ -1,12 +1,12 @@
 import { create } from "zustand";
 
-interface VisibleState {
+interface VisibleMenuState {
 	isVisible: boolean;
 	visible: () => void;
 	unVisible: () => void;
 }
 
-export const useVisibleStore = create<VisibleState>((set) => ({
+export const useVisibleMenuStore = create<VisibleMenuState>((set) => ({
 	isVisible: false,
 	visible: () => set(() => ({ isVisible: true })),
 	unVisible: () => set(() => ({ isVisible: false })),

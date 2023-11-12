@@ -1,12 +1,12 @@
 import { useState } from "react";
-import prodImage from "../assets/images/sneakers/2.png";
+import { IProduct } from "../models";
 
-export default function ProdCard() {
+export default function ProdCard({ data }: IProduct) {
 	const [bookmark, setBookmark] = useState(false);
 	const [added, setAdded] = useState(false);
 
 	const bookmarkClass = bookmark
-		? "flex items-center justify-center p-[0.8rem] border border-[#F8F8F8] rounded-[0.7rem] absolute top-[0.8rem] left-0 z-30 transition-all bg-[#FEF0F0] border-[#fff] fill-[#FF8585] stroke-[#FF8585]"
+		? "flex items-center justify-center p-[0.8rem] border border-[#EAEAEA] rounded-[0.7rem] absolute top-[0.8rem] left-0 z-30 transition-all bg-[#FEF0F0] border-[#fff] fill-[#FF8585] stroke-[#FF8585]"
 		: "flex items-center justify-center p-[0.8rem] border border-[#EAEAEA] rounded-[0.7rem] absolute top-[0.8rem] left-0 z-30 hover:border-[#e1e1e1] hover:stroke-[#c4c4c4] transition-all duration-[400ms] stroke-[#EAEAEA] fill-[#fff]";
 
 	return (
@@ -32,24 +32,27 @@ export default function ProdCard() {
 					</svg>
 				</button>
 				<img
-					className="w-full object-contain object-center select-none pointer-events-none"
-					src={prodImage}
-					alt=""
+					className="w-full object-contain object-center h-[22.5rem]"
+					src={data.image.src}
+					alt={data.image.alt}
+					title={data.image.title}
 				/>
 			</div>
 			<section className="flex flex-col gap-[1.4rem] mt-[1.4rem]">
-				<h4 className="text-[1.4rem]">
-					Мужские Кроссовки Nike Air Max 270
-				</h4>
+				<h4 className="text-[1.4rem]">{data.title}</h4>
 				<div className="flex justify-between items-end flex-wrap gap-2">
 					<div className="flex flex-col gap-[0.2rem]">
 						<span className="text-[#BDBDBD] text-[1.1rem] font-medium uppercase">
 							Цена:
 						</span>
-						<span className="font-bold">12 999 руб.</span>
+						<span className="font-bold">{data.cost}</span>
 					</div>
 					{added ? (
-						<button className="flex items-center justify-center w-[3.2rem] h-[3.2rem] rounded-[0.8rem] bg-gradient-lime" type="button" onClick={() => setAdded(!added)}>
+						<button
+							className="flex items-center justify-center w-[3.2rem] h-[3.2rem] rounded-[0.8rem] bg-gradient-lime"
+							type="button"
+							onClick={() => setAdded(!added)}
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="12"
@@ -114,7 +117,11 @@ export default function ProdCard() {
 							</svg>
 						</button>
 					) : (
-						<button className="flex" type="button" onClick={() => setAdded(!added)}>
+						<button
+							className="flex"
+							type="button"
+							onClick={() => setAdded(!added)}
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="32"

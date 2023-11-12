@@ -1,8 +1,8 @@
-import { useVisibleStore } from "../store";
+import { useVisibleMenuStore } from "../store";
 import boxImg from "../assets/images/box.png";
 
 export default function SideMenu() {
-	const { isVisible, unVisible } = useVisibleStore();
+	const { isVisible, unVisible } = useVisibleMenuStore();
 
 	return (
 		<>

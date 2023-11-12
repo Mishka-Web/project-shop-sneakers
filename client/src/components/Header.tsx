@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import { useVisibleStore } from "../store";
+import { useVisibleMenuStore } from "../store";
 import logo from "../assets/images/logo.png";
 
 export default function Header() {
-	const { visible } = useVisibleStore();
+	const { visible } = useVisibleMenuStore();
 
 	return (
 		<header className="border-b border-[#EAEAEA]">
