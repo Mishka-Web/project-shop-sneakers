@@ -1,10 +1,5 @@
 import { create } from "zustand";
-
-interface VisibleState {
-	isVisible: boolean;
-	visible: () => void;
-	unVisible: () => void;
-}
+import { VisibleState } from "./models";
 
 export const useVisibleStore = create<VisibleState>((set) => ({
 	isVisible: false,
