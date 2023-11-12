@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function PurchasesPage() {
 	return (
 		<motion.div
-			key="home-page"
+			key="purchases-page"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}

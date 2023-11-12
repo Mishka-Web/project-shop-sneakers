@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function BookmarksPage() {
 	return (
 		<motion.div
-			key="home-page"
+			key="bookmarks-page"
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
