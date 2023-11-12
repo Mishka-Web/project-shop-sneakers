@@ -121,7 +121,7 @@ export default function ProdCard({ data }: IProduct) {
 							</svg>
 						</button>
 					) : (
-						<Tippy content={<span>В корзину</span>} placement="bottom">
+						<Tippy content={<span>В корзину</span>} placement="bottom-end">
 							<button
 								className="flex"
 								type="button"
