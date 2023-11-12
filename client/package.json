@@ -12,13 +12,13 @@
 	"proxy": "http://localhost:3001",
 	"author": "Mihail Rachev",
 	"dependencies": {
+		"@tippyjs/react": "^4.2.6",
 		"axios": "^1.6.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
 		"react-helmet": "^6.1.0",
 		"react-router-dom": "^6.18.0",
 		"swiper": "^11.0.4",
-		"tippy.js": "^6.3.7",
 		"zustand": "^4.4.6"
 	},
 	"devDependencies": {
