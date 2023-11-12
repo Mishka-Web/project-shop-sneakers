@@ -11,7 +11,7 @@ export default function Header() {
 				<div className="flex items-center justify-between flex-wrap h-[12.8rem]">
 					<div className="flex items-center">
 						<div className="flex items-center gap-[1.6rem]">
-							<NavLink to={"/"}>
+							<NavLink className={"flex"} to={"/"}>
 								<img
 									className="w-[4rem] h-[4rem] object-contain"
 									src={logo}
@@ -29,7 +29,7 @@ export default function Header() {
 							</div>
 						</div>
 					</div>
-					<nav className="flex items-center gap-[3.2rem] text-[#5C5C5C]">
+					<nav className="flex items-center gap-[1.6rem_3.2rem] flex-wrap text-[#5C5C5C]">
 						<button
 							className="inline-flex items-center gap-[1rem]"
 							type="button"
@@ -65,9 +65,9 @@ export default function Header() {
 									stroke-linejoin="round"
 								/>
 							</svg>
-							<span className="font-semibold">1205 руб.</span>
+							<span className="font-semibold">0 руб.</span>
 						</button>
-						<NavLink to={"/bookmarks"}>
+						<NavLink className={"flex"} to={"/bookmarks"}>
 							<button
 								className="inline-flex items-center gap-[0.8rem]"
 								type="button"
@@ -99,7 +99,7 @@ export default function Header() {
 								<span>Закладки</span>
 							</button>
 						</NavLink>
-						<NavLink to={"/purchases"}>
+						<NavLink className={"flex"} to={"/purchases"}>
 							<button
 								className="inline-flex items-center gap-[0.8rem]"
 								type="button"
