@@ -1,10 +1,19 @@
 import { Helmet } from "react-helmet";
 import ProdCard from "../components/ProdCard";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function PurchasesPage() {
 	return (
-		<>
+		<motion.div
+			key="home-page"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{
+				duration: 0.75,
+			}}
+		>
 			<Helmet>
 				<title>Мои покупки</title>
 			</Helmet>
@@ -48,7 +57,7 @@ export default function PurchasesPage() {
 					</div>
 				</div>
 			</main>
-		</>
+		</motion.div>
 	);
 }
 

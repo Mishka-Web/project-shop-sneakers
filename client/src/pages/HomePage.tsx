@@ -2,10 +2,19 @@ import Search from "../components/Search";
 import Products from "../components/Products";
 import IntroSlider from "../components/IntroSlider";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
 
 export default function HomePage() {
 	return (
-		<>
+		<motion.div
+			key="home-page"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+			transition={{
+				duration: 0.75,
+			}}
+		>
 			<Helmet>
 				<title>Главная</title>
 			</Helmet>
@@ -23,6 +32,6 @@ export default function HomePage() {
 					</div>
 				</div>
 			</main>
-		</>
+		</motion.div>
 	);
 }

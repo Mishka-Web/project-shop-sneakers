@@ -5,15 +5,19 @@ import HomePage from "./pages/HomePage";
 import PurchasesPage from "./pages/PurchasesPage";
 import BookmarksPage from "./pages/BookmarksPage";
 
+import { AnimatePresence } from "framer-motion";
+
 function App() {
 	return (
 		<>
 			<Header />
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/purchases" element={<PurchasesPage />} />
-				<Route path="/bookmarks" element={<BookmarksPage />} />
-			</Routes>
+			<AnimatePresence>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/purchases" element={<PurchasesPage />} />
+					<Route path="/bookmarks" element={<BookmarksPage />} />
+				</Routes>
+			</AnimatePresence>
 			<SideMenu />
 		</>
 	);
