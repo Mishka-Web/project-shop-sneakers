@@ -2,7 +2,7 @@ import { useState } from "react";
 import { IProduct } from "../models";
 
 export default function ProdCard({ data }: IProduct) {
-	const [bookmark, setBookmark] = useState(false);
+	const [bookmark, setBookmark] = useState(!!data.isActive);
 	const [added, setAdded] = useState(false);
 
 	const bookmarkClass = bookmark
