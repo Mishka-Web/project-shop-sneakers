@@ -1,9 +1,9 @@
 import express from 'express';
+import { graphqlHTTP } from 'express-graphql';
+import { buildSchema } from 'graphql'
+
 const PORT = process.env.PORT || 3001;
 const app = express();
-
-let { graphqlHTTP } = require("express-graphql")
-let { buildSchema } = require("graphql");
 
 // Construct a schema, using GraphQL schema language
 let schema = buildSchema(`
@@ -16,7 +16,6 @@ app.use(
 	"/graphql",
 	graphqlHTTP({
 		schema: schema,
-		rootValue: root,
 		graphiql: true,
 	})
 );
