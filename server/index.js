@@ -12,10 +12,17 @@ let schema = buildSchema(`
 	}
 `);
 
+let root = {
+	hello: () => {
+		return "Hello world!"
+	},
+}
+
 app.use(
 	"/graphql",
 	graphqlHTTP({
 		schema: schema,
+		rootValue: root,
 		graphiql: true,
 	})
 );
