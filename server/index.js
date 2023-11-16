@@ -1,11 +1,16 @@
+const cfg = require('./configuration/config');
 const express = require("express");
-require('dotenv').config()
+const sequelize = require('./db');
 
-const PORT = process.env.PORT || 3000;
 const app = express();
 
-app.get('/', (req, res) => res.send("Hello!"));
-
-app.listen(PORT, () => {
-	console.log(`Server listening on ${PORT}`);
-});
+(async function() {
+	try {
+		await sequelize.authenticate();
+		await sequelize.sync();
+		
+		app.listen(cfg.PORT, () => console.log(`Server listening on ${cfg.PORT}`));
+	} catch (error) {
+		console.error(error);
+	}
+}());
