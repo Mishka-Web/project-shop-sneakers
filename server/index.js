@@ -7,15 +7,15 @@ const cors = require('cors');
 const app = express();
 
 // settings
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 
-(async function() {
+(async function () {
 	try {
 		await sequelize.authenticate();
 		await sequelize.sync();
 
-		app.listen(cfg.PORT, () => console.log(`Server listening on ${cfg.PORT}`));
+		app.listen(cfg.port, () => console.log(`Server listening on ${cfg.port}`));
 	} catch (error) {
 		console.error(error);
 	}
