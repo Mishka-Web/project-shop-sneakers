@@ -1,5 +1,7 @@
 const {User, Basket} = require("../models/models");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const cfg = require('../configuration/config');
 
 class UserController {
     async reg(req, res, next) {
@@ -13,11 +15,12 @@ class UserController {
 
         const hashPass = await bcrypt.hash(password, 5);
         const user = await User.create({
-            email,
-            role,
-            password: hashPass
+            email, password: hashPass
         });
-        const 
+        const basket = await Basket.create({userId: user.id});
+        const token = jwt.sign({id: user.id, email}, cfg.secretKey, {expiresIn: '24h'});
+
+        return res.json({token});
     }
 
     async login() {
