@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const cfg = require('../configuration/config');
 
+function genJWT(opts = {}) {
+    return jwt.sign({...opts}, cfg.secretKey, {expiresIn: '24h'});
+}
+
 class UserController {
     async reg(req, res, next) {
         const {email, password} = req.body;
@@ -18,13 +22,16 @@ class UserController {
             email, password: hashPass
         });
         const basket = await Basket.create({userId: user.id});
-        const token = jwt.sign({id: user.id, email}, cfg.secretKey, {expiresIn: '24h'});
+        const token = genJWT({
+            id: user.id,
+            email: email
+        });
 
         return res.json({token});
     }
 
-    async login() {
-
+    async login(req, res, next) {
+        
     }
 
     async isAuth(req, res) {
