@@ -44,7 +44,11 @@ class UserController {
     }
 
     async isAuth(req, res) {
-        res.json("User is auth.");
+        const token = genJWT({
+            id: req.user.id,
+            email: req.user.email
+        });
+        return res.json({token});
     }
 }
 
