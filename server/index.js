@@ -1,14 +1,16 @@
 const cfg = require('./configuration/config');
 const models = require('./models/models');
 const express = require("express");
-const sequelize = require('./db.js');
+const sequelize = require('./db');
 const cors = require('cors');
+const routes = require('./routes/index');
 
 const app = express();
 
 // settings
 app.use(cors());
 app.use(express.json());
+app.use('/api', routes);
 
 (async function () {
 	try {
