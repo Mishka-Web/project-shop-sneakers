@@ -8,7 +8,7 @@ const $inst = axios.create({
 	baseURL: "http://localhost:5000/",
 });
 
-const interceptor = (config: { headers: { authorization: string; }; }) => {
+const interceptor = (config) => {
 	return (config.headers.authorization = `Bearer ${localStorage.getItem(
 		"token"
 	)}`);
