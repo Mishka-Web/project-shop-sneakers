@@ -1,17 +1,26 @@
-import { $instance } from './index';
+import {$authInstance, $instance} from './index';
+import jwtDecode from 'jwt-decode';
 
 async function registration(opts) {
-	return await $instance.post('api/user/reg', {...opts});
+    const {data} = await $instance.post('api/user/reg', {...opts});
+    localStorage.setItem('token', data.token);
+    return jwtDecode(data.token);
 }
+
 async function login(opts) {
-	return await $instance.post('api/user/login', {...opts});
+    const {data} = await $instance.post('api/user/login', {...opts});
+    localStorage.setItem('token', data.token);
+    return jwtDecode(data.token);
 }
+
 async function isAuth() {
-	return await $instance.post('api/user/auth');
+    const {data} = await $authInstance.get('api/user/auth');
+    localStorage.setItem('token', data.token);
+    return jwtDecode(data.token);
 }
 
 export {
-	registration,
-	login,
-	isAuth
+    registration,
+    login,
+    isAuth
 }

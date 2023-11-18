@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-const $instance = axios.create({
-	baseURL: "http://localhost:5000/"
-});
-
-const $authInstance = axios.create({
+const { $instance, $authInstance } = axios.create({
 	baseURL: "http://localhost:5000/"
 });
 
