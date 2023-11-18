@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const { $instance, $authInstance } = axios.create({
+const { $inst, $authInstance } = axios.create({
 	baseURL: "http://localhost:5000/"
 });
 
@@ -9,6 +9,6 @@ const interceptor = config => { return config.headers.authorization = `Bearer ${
 $authInstance.interceptors.request.use(interceptor);
 
 export {
-	$instance,
+	$inst,
 	$authInstance
 }
