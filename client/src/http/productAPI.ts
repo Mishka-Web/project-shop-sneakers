@@ -1,7 +1,6 @@
-import { $inst } from './index';
-// import { jwtDecode } from 'jwt-decode';
+import { $inst } from "./index";
 
-export async function getAll() {
-	const response = await $inst.get('api/product/');
-	return response.data;
+export default async function getProducts() {
+	const { data } = await $inst.get("api/product/");
+	return data;
 }

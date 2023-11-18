@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { IProduct } from "../models";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import config from "../config";
 
-export default function ProdCard({ data }: IProduct) {
+export default function ProdCard({ data }) {
 	const [bookmark, setBookmark] = useState(!!data.isActive);
 	const [added, setAdded] = useState(false);
 
@@ -37,9 +37,7 @@ export default function ProdCard({ data }: IProduct) {
 				</Tippy>
 				<img
 					className="w-[92.5%] mx-auto object-contain object-center h-[18.5rem]"
-					src={data.image.src}
-					alt={data.image.alt}
-					title={data.image.title}
+					src={"http://localhost:5000/" + data.img}
 				/>
 			</div>
 			<section className="flex flex-col gap-[1.4rem] mt-[1.4rem]">
@@ -49,7 +47,7 @@ export default function ProdCard({ data }: IProduct) {
 						<span className="text-[#BDBDBD] text-[1.1rem] font-medium uppercase">
 							Цена:
 						</span>
-						<span className="font-bold">{data.cost}</span>
+						<span className="font-bold">{data.price}</span>
 					</div>
 					{added ? (
 						<button

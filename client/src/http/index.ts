@@ -1,19 +1,23 @@
 import axios from "axios";
 
-const $authInstance = axios.create({
-	baseURL: "http://localhost:5000/",
-});
-
 const $inst = axios.create({
 	baseURL: "http://localhost:5000/",
 });
 
-const interceptor = (config) => {
-	return (config.headers.authorization = `Bearer ${localStorage.getItem(
-		"token"
-	)}`);
-};
+const $authInstance = axios.create({
+	baseURL: "http://localhost:5000/",
+});
 
-$authInstance.interceptors.request.use(interceptor);
+$authInstance.interceptors.request.use(
+	async (config) => {
+		axios.defaults.headers.authorization = `Bearer ${localStorage.getItem(
+			"token"
+		)}`;
+		return config;
+	},
+	(error) => {
+		return Promise.reject(error);
+	}
+);
 
 export { $inst, $authInstance };

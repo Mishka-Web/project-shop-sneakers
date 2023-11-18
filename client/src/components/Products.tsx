@@ -1,13 +1,13 @@
 import ProdCard from "./ProdCard";
-// import products from "../products.json";
-import { getAll } from "../http/productAPI";
+import getProducts from "../http/productAPI";
 import { useEffect, useState } from "react";
 
 export default function Products() {
 	const [products, setProducts] = useState([]);
+
 	useEffect(() => {
-		getAll.then((data) => setProducts(data));
-	});
+		getProducts().then(data => setProducts(data.rows));
+	}, []);
 
 	return (
 		<div className="mt-[3.6rem]">
