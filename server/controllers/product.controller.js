@@ -3,7 +3,6 @@ const {resolve} = require('path');
 const {Product} = require('../models/models');
 
 class ProductController {
-
     async create(req, res, next) {
         try {
             const {title, price} = req.body;
