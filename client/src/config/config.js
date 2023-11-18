@@ -1,5 +1,5 @@
 import 'dotenv/config';
 
 export const cfg = {
-	apiUrl: process.env.APP_API_URL
+	apiUrl: process.env.REACT_APP_API_URL
 }
