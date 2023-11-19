@@ -1,6 +1,6 @@
 import { $inst } from "./index";
 
 export default async function getProducts() {
-	const { data } = await $inst.get("api/product/");
+	const { data } = await $inst.get("product/");
 	return data;
 }

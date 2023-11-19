@@ -1,11 +1,11 @@
 import axios from "axios";
 
 const $inst = axios.create({
-	baseURL: "http://localhost:5000/",
+	baseURL: "http://localhost:5000/api/",
 });
 
 const $authInstance = axios.create({
-	baseURL: "http://localhost:5000/",
+	baseURL: "http://localhost:5000/api/",
 });
 
 $authInstance.interceptors.request.use(
