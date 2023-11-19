@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import ProdCard from "../components/ProdCard";
+// import ProdCard from "../components/ProdCard";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -51,45 +51,12 @@ export default function PurchasesPage() {
 						<h2 className="text-[3.2rem] font-bold">Мои покупки</h2>
 					</div>
 					<div className="grid grid-cols-[repeat(auto-fill,_minmax(26rem,_1fr))] gap-[4rem]">
-						{products.map((item) => (
+						{/* {products.map((item) => (
 							<ProdCard key={item.id} data={item} />
-						))}
+						))} */}
 					</div>
 				</div>
 			</main>
 		</motion.div>
 	);
 }
-
-const products = [
-	{
-		id: 4,
-		title: "Кроссовки Puma X Aka Boku Future Rider",
-		cost: "8 999 руб.",
-		image: {
-			src: "/src/assets/images/sneakers/4.png",
-			alt: "Кроссовки Puma X Aka Boku Future Rider",
-			title: "Кроссовки Puma X Aka Boku Future Rider",
-		},
-	},
-	{
-		id: 6,
-		title: "Мужские Кроссовки Nike Kyrie 7",
-		cost: "11 299 руб.",
-		image: {
-			src: "/src/assets/images/sneakers/6.png",
-			alt: "Мужские Кроссовки Nike Kyrie 7",
-			title: "Мужские Кроссовки Nike Kyrie 7",
-		},
-	},
-	{
-		id: 8,
-		title: "Мужские Кроссовки Nike LeBron XVIII",
-		cost: "16 499 руб.",
-		image: {
-			src: "/src/assets/images/sneakers/8.png",
-			alt: "Мужские Кроссовки Nike LeBron XVIII",
-			title: "Мужские Кроссовки Nike LeBron XVIII",
-		},
-	},
-];

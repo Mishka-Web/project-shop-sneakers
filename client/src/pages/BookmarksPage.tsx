@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet";
-import ProdCard from "../components/ProdCard";
+// import ProdCard from "../components/ProdCard";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -53,26 +53,12 @@ export default function BookmarksPage() {
 						</h2>
 					</div>
 					<div className="grid grid-cols-[repeat(auto-fill,_minmax(26rem,_1fr))] gap-[4rem]">
-						{products.map((item) => (
+						{/* {products.map((item) => (
 							<ProdCard key={item.id} data={item} />
-						))}
+						))} */}
 					</div>
 				</div>
 			</main>
 		</motion.div>
 	);
 }
-
-const products = [
-	{
-		id: 4,
-		title: "Кроссовки Puma X Aka Boku Future Rider",
-		cost: "8 999 руб.",
-		image: {
-			src: "/src/assets/images/sneakers/4.png",
-			alt: "Кроссовки Puma X Aka Boku Future Rider",
-			title: "Кроссовки Puma X Aka Boku Future Rider",
-		},
-		isActive: true,
-	},
-];

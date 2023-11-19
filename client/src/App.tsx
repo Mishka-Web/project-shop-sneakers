@@ -1,11 +1,11 @@
 import Header from "./components/Header";
-import SideMenu from "./components/SideMenu";
 import { Routes, Route } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import SideMenu from "./components/SideMenu";
 import HomePage from "./pages/HomePage";
 import PurchasesPage from "./pages/PurchasesPage";
 import BookmarksPage from "./pages/BookmarksPage";
-
-import { AnimatePresence } from "framer-motion";
+import AuthPage from "./pages/authPage";
 
 function App() {
 	return (
@@ -16,6 +16,7 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/purchases" element={<PurchasesPage />} />
 					<Route path="/bookmarks" element={<BookmarksPage />} />
+					<Route path="/authorization" element={<AuthPage />} />
 				</Routes>
 			</AnimatePresence>
 			<SideMenu />
