@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { login } from "../http/user-api";
 
 interface IFormInput {
 	email: string;
@@ -9,13 +11,23 @@ interface IFormInput {
 export default function FormAuth() {
 	const [index, setIndex] = useState(0);
 
+	const navigate = useNavigate();
+
 	const { register, handleSubmit } = useForm<IFormInput>();
 
-	const onFormSubmit: SubmitHandler<IFormInput> = (data) => console.log(data);
+	const onFormSubmit: SubmitHandler<IFormInput> = (data) => {
+		try {
+			login({ ...data });
+			return navigate("/");
+		} catch (error) {
+			console.error(error);
+			return navigate("/auth");
+		}
+	};
 
 	return (
-		<div className="flex flex-col rounded-[1rem] overflow-hidden max-w-[55rem] w-full fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] shadow-[rgba(100,100,111,0.1)_0_0.7rem_2.9rem_0]">
-			<div className="flex flex-grow items-center">
+		<div className="flex flex-col rounded-[1rem] overflow-hidden max-w-[55rem] min-h-[33.2rem] bg-[#fff] w-full fixed z-50 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] shadow-[rgba(100,100,111,0.1)_0_0.7rem_2.9rem_0]">
+			<div className="flex items-center">
 				<button
 					className={
 						index === 0

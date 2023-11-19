@@ -1,5 +1,5 @@
 import ProdCard from "./ProdCard";
-import getProducts from "../http/productAPI";
+import getProducts from "../http/prod-api";
 import { useEffect, useState } from "react";
 
 export default function Products() {

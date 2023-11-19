@@ -1,13 +1,13 @@
 import { $authInstance, $inst } from "./index";
 import { jwtDecode } from "jwt-decode";
 
-async function registration(opts: string[]) {
+async function reg(opts: object) {
 	const { data } = await $inst.post("user/reg", { ...opts });
 	localStorage.setItem("token", data.token);
 	return jwtDecode(data.token);
 }
 
-async function login(opts: string[]) {
+async function login(opts: object) {
 	const { data } = await $inst.post("user/login", { ...opts });
 	localStorage.setItem("token", data.token);
 	return jwtDecode(data.token);
@@ -19,4 +19,4 @@ async function isAuth() {
 	return jwtDecode(data.token);
 }
 
-export { registration, login, isAuth };
+export { reg, login, isAuth };

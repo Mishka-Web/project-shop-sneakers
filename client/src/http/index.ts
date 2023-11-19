@@ -14,9 +14,6 @@ $authInstance.interceptors.request.use(
 			"token"
 		)}`;
 		return config;
-	},
-	(error) => {
-		return Promise.reject(error);
 	}
 );
 

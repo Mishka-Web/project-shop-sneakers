@@ -16,7 +16,7 @@ function App() {
 					<Route path="/" element={<HomePage />} />
 					<Route path="/purchases" element={<PurchasesPage />} />
 					<Route path="/bookmarks" element={<BookmarksPage />} />
-					<Route path="/authorization" element={<AuthPage />} />
+					<Route path="/auth" element={<AuthPage />} />
 				</Routes>
 			</AnimatePresence>
 			<SideMenu />

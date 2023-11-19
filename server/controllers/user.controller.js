@@ -21,7 +21,9 @@ class UserController {
         const user = await User.create({
             email, password: hashPass
         });
+		
         await Basket.create({userId: user.id});
+
         const token = genJWT({
             id: user.id,
             email: email

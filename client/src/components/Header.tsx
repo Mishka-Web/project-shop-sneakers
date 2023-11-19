@@ -3,6 +3,7 @@ import { useVisibleMenuStore } from "../store";
 import logo from "../assets/images/logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import { isAuth } from "../http/user-api";
 
 export default function Header() {
 	const { visible } = useVisibleMenuStore();
@@ -23,7 +24,7 @@ export default function Header() {
 							</NavLink>
 							<div className="flex flex-col">
 								<h1 className="text-[2rem] font-bold uppercase">
-									react sneakers
+									shop sneakers
 								</h1>
 								<h3 className="text-[#9D9D9D]">
 									Магазин лучших кроссовок
@@ -107,7 +108,15 @@ export default function Header() {
 							</NavLink>
 						</Tippy>
 						<Tippy
-							content={<span>Мой профиль</span>}
+							content={
+								<span>
+									{isAuth
+										? isAuth()
+												.then((data) => data["email"])
+												.toString()
+										: "Вы не авторизованы"}
+								</span>
+							}
 							placement={"bottom"}
 						>
 							<NavLink className={"flex"} to={"/purchases"}>

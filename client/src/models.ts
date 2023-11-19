@@ -4,9 +4,3 @@ export interface IProduct {
 	cost: string,
 	image: string[]
 }
-
-// export interface IUser {
-// 	id: number,
-// 	login: string,
-// 	password: string
-// }
