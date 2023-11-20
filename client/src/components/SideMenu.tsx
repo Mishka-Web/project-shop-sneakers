@@ -1,8 +1,10 @@
 import { useVisibleMenuStore } from "../store";
 import boxImg from "../assets/images/box.png";
+import { useNavigate } from "react-router-dom";
 
 export default function SideMenu() {
 	const { isVisible, unVisible } = useVisibleMenuStore();
+	const navigate = useNavigate();
 
 	return (
 		<>
@@ -42,7 +44,10 @@ export default function SideMenu() {
 						<button
 							className="inline-flex items-center justify-center gap-[1.8rem] bg-[#9DD458] h-[5.5rem] rounded-[1.8rem] px-[3.1rem] text-[1.6rem] text-[#fff] font-semibold mt-[4.4rem] w-full"
 							type="button"
-							onClick={unVisible}
+							onClick={() => {
+								unVisible();
+								navigate("/");
+							}}
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"

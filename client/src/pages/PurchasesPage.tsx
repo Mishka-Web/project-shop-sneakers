@@ -2,13 +2,15 @@ import { Helmet } from "react-helmet";
 import { NavLink, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { useUserStore } from "../store";
 
 export default function PurchasesPage() {
 	const navigate = useNavigate();
+	const { isAuth: userIsAuth } = useUserStore();
 
 	useEffect(() => {
-		if (!localStorage.getItem("token")) navigate("/");
-	});
+		if (!localStorage.getItem("token")) navigate("/auth");
+	}, [navigate, userIsAuth]);
 
 	return (
 		<motion.div

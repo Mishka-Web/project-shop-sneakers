@@ -1,9 +1,17 @@
 import { Helmet } from "react-helmet";
-// import ProdCard from "../components/ProdCard";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useUserStore } from "../store";
 
 export default function BookmarksPage() {
+	const navigate = useNavigate();
+	const { isAuth: userIsAuth } = useUserStore();
+
+	useEffect(() => {
+		if (!localStorage.getItem("token")) navigate("/auth");
+	}, [navigate, userIsAuth]);
+	
 	return (
 		<motion.div
 			key="bookmarks-page"
@@ -11,7 +19,7 @@ export default function BookmarksPage() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{
-				duration: 0.75,
+				duration: 1,
 			}}
 		>
 			<Helmet>

@@ -1,10 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useVisibleMenuStore, useUserStore } from "../store";
 import logo from "../assets/images/logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
 export default function Header() {
+	const navigate = useNavigate();
 	const { visible } = useVisibleMenuStore();
 	const { isAuth: userIsAuth, exit: userExit } = useUserStore();
 
@@ -119,7 +120,7 @@ export default function Header() {
 										onClick={() => {
 											userExit();
 											localStorage.removeItem("token");
-											window.location.reload();
+											navigate("/");
 										}}
 									>
 										Выйти

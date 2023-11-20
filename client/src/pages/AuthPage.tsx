@@ -10,7 +10,7 @@ export default function AuthPage() {
 
 	useEffect(() => {
 		if (localStorage.getItem("token") || userIsAuth) navigate("/");
-	});
+	}, [navigate, userIsAuth]);
 
 	return (
 		<>
