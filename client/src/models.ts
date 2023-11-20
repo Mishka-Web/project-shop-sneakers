@@ -16,10 +16,8 @@ export interface IVisibleMenuState {
 	unVisible: () => void;
 }
 
-export interface IUserState {
+export interface IUserStoreState {
 	isAuth: boolean;
-	data: object;
 	auth: () => void;
 	exit: () => void,
-	updateData: () => void,
 }

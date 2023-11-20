@@ -1,9 +1,15 @@
 import { Helmet } from "react-helmet";
-// import ProdCard from "../components/ProdCard";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function PurchasesPage() {
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (!localStorage.getItem("token")) navigate("/");
+	});
+
 	return (
 		<motion.div
 			key="purchases-page"
@@ -11,7 +17,7 @@ export default function PurchasesPage() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{
-				duration: 0.75,
+				duration: 1,
 			}}
 		>
 			<Helmet>

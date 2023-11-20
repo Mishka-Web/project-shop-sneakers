@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { IFormInputs } from "../models";
 import { ErrorMessage } from "@hookform/error-message";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useUserStore } from "../store";
 
 export default function FormAuth() {
 	const [index, setIndex] = useState(0);
+	const { auth: userAuth } = useUserStore();
 
 	const {
 		register,
@@ -16,23 +18,20 @@ export default function FormAuth() {
 	} = useForm<IFormInputs>();
 
 	const onFormSubmit: SubmitHandler<IFormInputs> = (data) => {
-		userLogin({ ...data }).then((res) =>
-			localStorage.setItem(
-				"user-email",
-				(res?.email).toString() || "Error.."
-			)
-		);
-		return (window.location.href = "/");
+		try {
+			userLogin({ ...data });
+			userAuth();
+		} catch (e) {
+			console.error(e);
+		}
 	};
-
 	const onFormRegSubmit: SubmitHandler<IFormInputs> = (data) => {
-		userReg({ ...data }).then((res) =>
-			localStorage.setItem(
-				"user-email",
-				(res?.email).toString() || "Error.."
-			)
-		);
-		return (window.location.href = "/");
+		try {
+			userReg({ ...data });
+			userAuth();
+		} catch (e) {
+			console.error(e);
+		}
 	};
 
 	return (

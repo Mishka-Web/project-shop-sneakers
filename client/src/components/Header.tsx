@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { useVisibleMenuStore } from "../store";
+import { useVisibleMenuStore, useUserStore } from "../store";
 import logo from "../assets/images/logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
 export default function Header() {
 	const { visible } = useVisibleMenuStore();
+	const { isAuth: userIsAuth, exit: userExit } = useUserStore();
 
 	return (
 		<header className="border-b border-[#EAEAEA]">
@@ -72,6 +73,8 @@ export default function Header() {
 						<Tippy
 							content={<span>0 кроссовок</span>}
 							placement={"bottom"}
+							className="text-[13px]"
+							disabled={!userIsAuth}
 						>
 							<NavLink className={"flex"} to={"/bookmarks"}>
 								<button
@@ -108,21 +111,28 @@ export default function Header() {
 						</Tippy>
 						<Tippy
 							content={
-								<span>
-									{localStorage.getItem("token")
-										? localStorage.getItem("user-email")
-										: "Вы не авторизованы"}
-								</span>
+								!userIsAuth ? (
+									<span>Авторизоваться</span>
+								) : (
+									<button
+										type="button"
+										onClick={() => {
+											userExit();
+											localStorage.removeItem("token");
+											window.location.reload();
+										}}
+									>
+										Выйти
+									</button>
+								)
 							}
 							placement={"bottom"}
+							interactive={userIsAuth}
+							className="text-[13px]"
 						>
 							<NavLink
 								className={"flex"}
-								to={
-									localStorage.getItem("token")
-										? "/purchases"
-										: "/auth"
-								}
+								to={userIsAuth ? "/purchases" : "/auth"}
 							>
 								<button
 									className="inline-flex items-center gap-[0.8rem]"
