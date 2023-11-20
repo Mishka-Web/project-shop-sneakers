@@ -12,5 +12,5 @@ export const useUserStore = create<IUserState>((set) => ({
 	data: {},
 	auth: () => set((opts) => ({ isAuth: true, data: {...opts} })),
 	exit: () => set(() => ({ isAuth: false, data: undefined })),
-	updateData: () => set((opts) => ({ data: { ...opts } })),
+	updateData: () => set((opts) => ({ data: { ...opts } }))
 }));
