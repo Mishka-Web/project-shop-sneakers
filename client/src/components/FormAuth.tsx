@@ -22,7 +22,7 @@ export default function FormAuth() {
 				(res?.email).toString() || "Error.."
 			)
 		);
-		// return (window.location.href = "/");
+		return (window.location.href = "/");
 	};
 
 	const onFormRegSubmit: SubmitHandler<IFormInputs> = (data) => {
@@ -32,7 +32,7 @@ export default function FormAuth() {
 				(res?.email).toString() || "Error.."
 			)
 		);
-		// return (window.location.href = "/");
+		return (window.location.href = "/");
 	};
 
 	return (
@@ -42,7 +42,7 @@ export default function FormAuth() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 			transition={{
-				duration: 1.25,
+				duration: 1,
 			}}
 		>
 			<div className="flex flex-col rounded-[1rem] overflow-hidden max-w-[55rem] min-h-[33.2rem] bg-[#fff] w-full fixed z-40 top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] shadow-[rgba(100,100,111,0.1)_0_0.7rem_2.9rem_0]">
@@ -55,8 +55,10 @@ export default function FormAuth() {
 						}
 						type="button"
 						onClick={() => {
+							if (index !== 0) {
+								reset();
+							}
 							setIndex(0);
-							reset();
 						}}
 					>
 						Авторизация
@@ -69,8 +71,10 @@ export default function FormAuth() {
 						}
 						type="button"
 						onClick={() => {
+							if (index !== 1) {
+								reset();
+							}
 							setIndex(1);
-							reset();
 						}}
 					>
 						Регистрация
@@ -100,7 +104,11 @@ export default function FormAuth() {
 							<ErrorMessage
 								name="email"
 								errors={errors}
-								render={({ message }) => <span className="text-red-500">{message}</span>}
+								render={({ message }) => (
+									<span className="text-red-500 text-[13px]">
+										{message}
+									</span>
+								)}
 							/>
 						</label>
 						<label className="flex flex-col gap-[0.6rem]">
@@ -109,9 +117,10 @@ export default function FormAuth() {
 								{...register("password", {
 									required: "Поле обязательно",
 									minLength: {
-										message: "Пароль должен содержать больше 5 символов",
-										value: 5
-									}
+										message:
+											"Пароль должен содержать больше 5 символов",
+										value: 5,
+									},
 								})}
 								className="inline-flex w-full h-[3.6rem] text-[1.4rem] px-5 outline-none border-b border-b-[#e4e4e4] transition-all focus:placeholder:opacity-0 placeholder:transition-all focus:border-b-[#222]"
 								type="password"
@@ -120,7 +129,11 @@ export default function FormAuth() {
 							<ErrorMessage
 								name="password"
 								errors={errors}
-								render={({ message }) => <span className="text-red-500">{message}</span>}
+								render={({ message }) => (
+									<span className="text-red-500 text-[13px]">
+										{message}
+									</span>
+								)}
 							/>
 							<span className="text-red-500 text-[12px]"></span>
 						</label>

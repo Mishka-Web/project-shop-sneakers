@@ -18,5 +18,8 @@ export interface IVisibleMenuState {
 
 export interface IUserState {
 	isAuth: boolean;
+	data: object;
 	auth: () => void;
+	exit: () => void,
+	updateData: () => void,
 }

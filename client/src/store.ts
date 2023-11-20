@@ -9,5 +9,8 @@ export const useVisibleMenuStore = create<IVisibleMenuState>((set) => ({
 
 export const useUserStore = create<IUserState>((set) => ({
 	isAuth: false,
-	auth: () => set(() => ({ isAuth: true })),
+	data: {},
+	auth: () => set((opts) => ({ isAuth: true, data: {...opts} })),
+	exit: () => set(() => ({ isAuth: false, data: undefined })),
+	updateData: () => set((opts) => ({ data: { ...opts } })),
 }));
