@@ -3,7 +3,6 @@ import { useVisibleMenuStore } from "../store";
 import logo from "../assets/images/logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-import { isAuth } from "../http/user-api";
 
 export default function Header() {
 	const { visible } = useVisibleMenuStore();
@@ -110,16 +109,21 @@ export default function Header() {
 						<Tippy
 							content={
 								<span>
-									{isAuth
-										? isAuth()
-												.then((data) => data["email"])
-												.toString()
+									{localStorage.getItem("token")
+										? localStorage.getItem("user-email")
 										: "Вы не авторизованы"}
 								</span>
 							}
 							placement={"bottom"}
 						>
-							<NavLink className={"flex"} to={"/purchases"}>
+							<NavLink
+								className={"flex"}
+								to={
+									localStorage.getItem("token")
+										? "/purchases"
+										: "/auth"
+								}
+							>
 								<button
 									className="inline-flex items-center gap-[0.8rem]"
 									type="button"
