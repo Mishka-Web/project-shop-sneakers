@@ -12,6 +12,7 @@
 	"proxy": "http://localhost:3001",
 	"author": "Mihail Rachev",
 	"dependencies": {
+		"@hookform/error-message": "^2.0.1",
 		"@tippyjs/react": "^4.2.6",
 		"axios": "^1.6.1",
 		"dotenv": "^16.3.1",

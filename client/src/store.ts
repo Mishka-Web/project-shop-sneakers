@@ -1,23 +1,13 @@
 import { create } from "zustand";
+import { IVisibleMenuState, IUserState } from "./models";
 
-interface VisibleMenuState {
-	isVisible: boolean;
-	visible: () => void;
-	unVisible: () => void;
-}
-
-interface UserState {
-	isAuth: boolean;
-	auth: () => void;
-}
-
-export const useVisibleMenuStore = create<VisibleMenuState>((set) => ({
+export const useVisibleMenuStore = create<IVisibleMenuState>((set) => ({
 	isVisible: false,
 	visible: () => set(() => ({ isVisible: true })),
 	unVisible: () => set(() => ({ isVisible: false })),
 }));
 
-export const useUserStore = create<UserState>((set) => ({
+export const useUserStore = create<IUserState>((set) => ({
 	isAuth: false,
 	auth: () => set(() => ({ isAuth: true })),
 }));
