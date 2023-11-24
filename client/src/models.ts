@@ -16,8 +16,14 @@ export interface IVisibleMenuState {
 	unVisible: () => void;
 }
 
-export interface IUserStoreState {
+export interface IUserState {
 	isAuth: boolean;
 	auth: () => void;
 	exit: () => void,
+}
+
+export interface IBasketState {
+	count: number,
+	isItems: boolean,
+	update: () => void,
 }
