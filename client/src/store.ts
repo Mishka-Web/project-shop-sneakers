@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { IVisibleMenuState, IUserStoreState } from "./models";
+import { IVisibleMenuState, IUserState, IBasketState } from "./models";
 
 export const useVisibleMenuStore = create<IVisibleMenuState>((set) => ({
 	isVisible: false,
@@ -7,8 +7,18 @@ export const useVisibleMenuStore = create<IVisibleMenuState>((set) => ({
 	unVisible: () => set(() => ({ isVisible: false })),
 }));
 
-export const useUserStore = create<IUserStoreState>((set) => ({
+export const useUserStore = create<IUserState>((set) => ({
 	isAuth: false,
 	auth: () => set(() => ({ isAuth: true })),
 	exit: () => set(() => ({ isAuth: false })),
+}));
+
+export const useBasketStore = create<IBasketState>((set) => ({
+	count: 0,
+	isItems: false,
+	update: () =>
+		set((opts) => ({
+			count: opts?.count,
+			isItems: opts?.isItems,
+		})),
 }));

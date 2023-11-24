@@ -6,7 +6,7 @@ import "tippy.js/dist/tippy.css";
 
 export default function Header() {
 	const navigate = useNavigate();
-	const { visible } = useVisibleMenuStore();
+	const { visible: menuVisible } = useVisibleMenuStore();
 	const { isAuth: userIsAuth, exit: userExit } = useUserStore();
 
 	return (
@@ -37,7 +37,7 @@ export default function Header() {
 						<button
 							className="inline-flex items-center gap-[1rem]"
 							type="button"
-							onClick={visible}
+							onClick={menuVisible}
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
