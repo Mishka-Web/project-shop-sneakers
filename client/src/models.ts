@@ -1,8 +1,9 @@
 export interface IProduct {
 	id: number;
+	img: string;
 	title: string;
-	cost: string;
-	image: string[];
+	price: string;
+	isActive?: boolean;
 }
 
 export interface IFormInputs {

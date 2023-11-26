@@ -9,6 +9,8 @@ export default function Header() {
 	const { visible: menuVisible } = useVisibleMenuStore();
 	const { isAuth: userIsAuth, exit: userExit } = useUserStore();
 
+	localStorage.removeItem("token");
+
 	return (
 		<header className="border-b border-[#EAEAEA]">
 			<div className="container">
@@ -129,7 +131,7 @@ export default function Header() {
 							}
 							placement={"bottom"}
 							interactive={userIsAuth}
-							className="text-[13px]"
+							className="text-[13px] hover:bg-[#444] transition-colors"
 						>
 							<NavLink
 								className={"flex"}

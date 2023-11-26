@@ -5,7 +5,7 @@ import SideMenu from "./components/SideMenu";
 import HomePage from "./pages/HomePage";
 import PurchasesPage from "./pages/PurchasesPage";
 import BookmarksPage from "./pages/BookmarksPage";
-import AuthPage from "./pages/authPage";
+import AuthPage from "./pages/AuthPage";
 
 function App() {
 	return (
