@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-import config from "../config";
+import { IProduct } from "../models";
 
-export default function ProdCard({ data }) {
-	const [bookmark, setBookmark] = useState(!!data.isActive);
+export default function ProdCard({ data }: { data: IProduct }) {
+	const [bookmark, setBookmark] = useState(false);
 	const [added, setAdded] = useState(false);
 
 	const bookmarkClass = bookmark
@@ -14,7 +14,10 @@ export default function ProdCard({ data }) {
 	return (
 		<article className="pt-[2rem] pb-[3.4rem] pr-[2.9rem] pl-[3rem] border border-[#F3F3F3] rounded-[3rem] bg-[#fff] will-change-transform transition-all duration-[400ms] hover:border-[#F8F8F8] hover:shadow-[0_1.4rem_3rem_0_rgba(0,0,0,0.05)] hover:translate-y-[-1rem]">
 			<div className="relative">
-				<Tippy content={<span>{bookmark ? "Убрать" : "В закладки"}</span>} placement="right">
+				<Tippy
+					content={<span>{bookmark ? "Убрать" : "В закладки"}</span>}
+					placement="right"
+				>
 					<button
 						className={bookmarkClass}
 						type="button"
@@ -119,7 +122,10 @@ export default function ProdCard({ data }) {
 							</svg>
 						</button>
 					) : (
-						<Tippy content={<span>В корзину</span>} placement="bottom-end">
+						<Tippy
+							content={<span>В корзину</span>}
+							placement="bottom-end"
+						>
 							<button
 								className="flex"
 								type="button"

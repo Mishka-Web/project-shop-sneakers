@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+	&::-webkit-scrollbar-track {
+		background-color: #fff;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: #90c353;
+		border-radius: 4px
+	}
+
+	&::-webkit-scrollbar {
+		width: 4px;
+	}
+}
+
 :root {
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
@@ -21,4 +36,8 @@ body {
 	font-size: 1.4rem;
 	font-family: "Inter", sans-serif;
 	line-height: normal;
+
+	&::-webkit-scrollbar {
+		width: 7px;
+	}
 }

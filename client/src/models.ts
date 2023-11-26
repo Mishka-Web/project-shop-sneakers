@@ -1,8 +1,8 @@
 export interface IProduct {
 	id: number;
+	img: string;
 	title: string;
-	cost: string;
-	image: string[];
+	price: string;
 }
 
 export interface IFormInputs {
@@ -24,6 +24,5 @@ export interface IUserState {
 
 export interface IBasketState {
 	count: number,
-	isItems: boolean,
-	update: () => void,
+	updateInfo: () => void,
 }

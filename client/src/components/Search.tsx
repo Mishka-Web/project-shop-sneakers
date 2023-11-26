@@ -1,6 +1,6 @@
 export default function Search() {
 	return (
-		<search role="search">
+		<search role="search" is="x3d">
 			<form
 				className="flex items-center gap-[1.375rem] pl-[1.8rem] pr-[1rem] border border-[#F3F3F3] rounded-[1rem] max-w-[32rem] w-full"
 				name="form-search"
