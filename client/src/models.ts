@@ -25,5 +25,6 @@ export interface IUserState {
 export interface IBasketState {
 	count: number,
 	isItems: boolean,
-	update: () => void,
+	updateInfo: () => void,
+	addItem: () => void,
 }
