@@ -11,11 +11,17 @@ class UserController {
 	async reg(req, res, next) {
 		const { email, password } = req.body;
 
-		if (!email || !password) return next("Некорректный email или password");
+		if (!email || !password) {
+			console.log("Некорректный email или password");
+			next();
+		}
 
 		const isEmail = await User.findOne({ where: { email } });
 
-		if (isEmail) return next("Пользователь с таким email уже существует");
+		if (isEmail) {
+			console.log("Пользователь с таким email уже существует");
+			next();
+		}
 
 		const hashPass = await bcrypt.hash(password, 5);
 		const user = await User.create({
@@ -36,11 +42,17 @@ class UserController {
 		const { email, password } = req.body;
 		const user = await User.findOne({ where: { email } });
 
-		if (!user) return next("Пользователь не найден!");
+		if (!user) {
+			console.log("Пользователь не найден!");
+			next();
+		}
 
 		const comparePass = bcrypt.compareSync(password, user.password);
 
-		if (!comparePass) return next("Указан неверный пароль!");
+		if (!comparePass) {
+			console.log("Указан неверный пароль!");
+			next();
+		}
 
 		const token = genJWT({
 			id: user.id,
