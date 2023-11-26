@@ -4,7 +4,7 @@ import "tippy.js/dist/tippy.css";
 import { IProduct } from "../models";
 
 export default function ProdCard({ data }: { data: IProduct }) {
-	const [bookmark, setBookmark] = useState(!!data.isActive);
+	const [bookmark, setBookmark] = useState(false);
 	const [added, setAdded] = useState(false);
 
 	const bookmarkClass = bookmark

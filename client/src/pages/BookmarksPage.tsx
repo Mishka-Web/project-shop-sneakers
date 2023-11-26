@@ -11,7 +11,7 @@ export default function BookmarksPage() {
 	useEffect(() => {
 		if (!localStorage.getItem("token")) navigate("/auth");
 	}, [navigate, userIsAuth]);
-	
+
 	return (
 		<motion.div
 			key="bookmarks-page"

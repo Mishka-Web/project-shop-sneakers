@@ -3,7 +3,6 @@ export interface IProduct {
 	img: string;
 	title: string;
 	price: string;
-	isActive?: boolean;
 }
 
 export interface IFormInputs {
@@ -25,7 +24,5 @@ export interface IUserState {
 
 export interface IBasketState {
 	count: number,
-	isItems: boolean,
 	updateInfo: () => void,
-	addItem: () => void,
 }

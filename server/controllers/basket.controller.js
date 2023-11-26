@@ -3,8 +3,8 @@ const { Basket, BasketProduct } = require("../models/models");
 class BasketController {
 	async getItems(req, res, next) {
 		try {
-			const { userId } = req.params;
-			const items = await Basket.findAll({ where: { userId: userId } });
+			const { id } = req.params;
+			const items = await Basket.findAll({ where: { userId: id } });
 			return res.json(items);
 		} catch (e) {
 			console.error(e.message);

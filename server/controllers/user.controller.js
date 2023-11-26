@@ -42,17 +42,11 @@ class UserController {
 		const { email, password } = req.body;
 		const user = await User.findOne({ where: { email } });
 
-		if (!user) {
-			console.log("Пользователь не найден!");
-			next();
-		}
+		if (!user) next("Пользователь не найден!");
 
 		const comparePass = bcrypt.compareSync(password, user.password);
 
-		if (!comparePass) {
-			console.log("Указан неверный пароль!");
-			next();
-		}
+		if (!comparePass) next("Указан неверный пароль!");
 
 		const token = genJWT({
 			id: user.id,
