@@ -1,12 +1,12 @@
-import { $authInstance, $inst } from "./index";
+import { $inst } from "./index";
 
-async function getItems(id: number) {
-	const { data } = await $authInstance.get(`basket/:${id}`);
+async function getItems(opts: object) {
+	const { data } = await $inst.post("basket/", { ...opts });
 	return data;
 }
 
-async function addItem() {
-	const { data } = await $inst.post("basket/");
+async function addItem(opts: object) {
+	const { data } = await $inst.post("basket/add", { ...opts });
 	return data;
 }
 

@@ -17,6 +17,6 @@ export const useBasketStore = create<IBasketState>((set) => ({
 	count: 0,
 	updateInfo: () =>
 		set((opts) => ({
-			count: opts?.count || 0,
+			count: opts.count,
 		})),
 }));

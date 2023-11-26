@@ -1,10 +1,10 @@
-const { Basket, BasketProduct } = require("../models/models");
+const { Basket, BasketProduct, Product } = require("../models/models");
 
 class BasketController {
 	async getItems(req, res, next) {
 		try {
-			const { id } = req.params;
-			const items = await Basket.findAll({ where: { userId: id } });
+			const { id } = req.body;
+			const items = await Product.findAll({ where: { id } });
 			return res.json(items);
 		} catch (e) {
 			console.error(e.message);

@@ -1,4 +1,4 @@
-import { useBasketStore, useVisibleMenuStore } from "../store";
+import { useVisibleMenuStore } from "../store";
 import boxImg from "../assets/images/box.png";
 import { useNavigate } from "react-router-dom";
 import BasketProdCard from "./BasketProdCard";
@@ -8,12 +8,11 @@ import { useEffect, useState } from "react";
 export default function SideMenu() {
 	const { isVisible: menuIsVisible, unVisible: menuUnVisible } =
 		useVisibleMenuStore();
-	const { count: basketCountItems } = useBasketStore();
 	const [products, setProducts] = useState([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		getItems(1).then((data) => console.log(data));
+		getItems({id: 1}).then((data) => setProducts(data));
 	}, []);
 
 	return (
@@ -36,7 +35,7 @@ export default function SideMenu() {
 				<h2 className="text-[2.4rem] font-bold z-30 absolute top-[3.2rem] left-[3rem]">
 					Корзина
 				</h2>
-				{!basketCountItems ? (
+				{!products ? (
 					<div className="flex flex-col justify-center p-[5rem] pt-[9.1rem] h-full">
 						<section className="flex flex-col items-center text-center">
 							<img
@@ -87,7 +86,7 @@ export default function SideMenu() {
 						</section>
 					</div>
 				) : (
-					<div className="flex flex-col justify-between p-[5rem] pt-[9.1rem] h-full">
+					<div className="flex flex-col justify-between p-[3rem] pt-[9.1rem] h-full">
 						<div className="flex flex-col gap-[2rem] overflow-y-auto scrollbar-hide">
 							{products.map((item, index) => (
 								<BasketProdCard key={index} data={item} />
