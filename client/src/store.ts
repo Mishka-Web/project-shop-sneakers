@@ -15,8 +15,6 @@ export const useUserStore = create<IUserState>((set) => ({
 
 export const useBasketStore = create<IBasketState>((set) => ({
 	count: 0,
-	updateInfo: () =>
-		set((opts) => ({
-			count: opts.count,
-		})),
+	items: [],
+	setItems: (opts) => set(() => ({ items: opts })),
 }));

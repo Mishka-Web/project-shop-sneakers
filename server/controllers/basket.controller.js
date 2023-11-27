@@ -1,10 +1,10 @@
-const { Basket, BasketProduct, Product } = require("../models/models");
+const { BasketProduct, Basket, Product } = require("../models/models");
 
 class BasketController {
-	async getItems(req, res, next) {
+	async getBasket(req, res, next) {
 		try {
-			const { id } = req.body;
-			const items = await Product.findAll({ where: { id } });
+			const { userId } = req.body;
+			const items = await Basket.findOne({ where: { userId: userId } });
 			return res.json(items);
 		} catch (e) {
 			console.error(e.message);
@@ -12,25 +12,22 @@ class BasketController {
 		}
 	}
 
-	async addItem(req, res, next) {
+	async getBasketProduct(req, res, next) {
 		try {
-			const { idBasket, idProduct } = req.body;
-			const item = await BasketProduct.create({
-				basketId: idBasket,
-				productId: idProduct
-			});
-			return res.json(item);
+			const { basketId } = req.body;
+			const items = await BasketProduct.findOne({ where: { basketId: basketId } });
+			return res.json(items);
 		} catch (e) {
 			console.error(e.message);
 			next();
 		}
 	}
 
-	async removeItem(req, res, next) {
+	async getProducts(req, res, next) {
 		try {
-			const { id } = req.params;
-			const item = await BasketProduct.destroy({ where: { id } });
-			return res.json(item);
+			const { productId } = req.body;
+			const items = await Product.findAll({ where: { id: productId } });
+			return res.json(items);
 		} catch (e) {
 			console.error(e.message);
 			next();

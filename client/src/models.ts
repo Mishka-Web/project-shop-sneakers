@@ -19,10 +19,11 @@ export interface IVisibleMenuState {
 export interface IUserState {
 	isAuth: boolean;
 	auth: () => void;
-	exit: () => void,
+	exit: () => void;
 }
 
 export interface IBasketState {
-	count: number,
-	updateInfo: () => void,
+	count: number;
+	items: string[];
+	setItems: (opts: string[]) => void;
 }

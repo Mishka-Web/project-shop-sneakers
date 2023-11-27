@@ -118,7 +118,7 @@ export default function FormAuth() {
 									minLength: {
 										message:
 											"Пароль должен содержать больше 5 символов",
-										value: 5,
+										value: 3,
 									},
 								})}
 								className="inline-flex w-full h-[3.6rem] text-[1.4rem] px-5 outline-none border-b border-b-[#e4e4e4] transition-all focus:placeholder:opacity-0 placeholder:transition-all focus:border-b-[#222]"

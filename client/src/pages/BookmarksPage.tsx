@@ -49,9 +49,6 @@ export default function BookmarksPage() {
 									<path
 										d="M19 22L14 17L19 12"
 										stroke="#C8C8C8"
-										stroke-width="1.5"
-										stroke-linecap="round"
-										stroke-linejoin="round"
 									/>
 								</svg>
 							</button>

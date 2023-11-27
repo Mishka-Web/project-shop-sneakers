@@ -1,18 +1,18 @@
-import { $authInstance, $inst } from "./index";
+import { $inst } from "./index";
 
-async function getItems(opts: object) {
-	const { data } = await $authInstance.post("basket/", { ...opts });
+async function getBasket(opts: object) {
+	const { data } = await $inst.post("basket/", { ...opts });
 	return data;
 }
 
-async function addItem(opts: object) {
-	const { data } = await $inst.post("basket/add", { ...opts });
+async function getBasketProduct(opts: object) {
+	const { data } = await $inst.post("basket/basket-product", { ...opts });
 	return data;
 }
 
-async function removeItem() {
-	const { data } = await $inst.post("basket/:id");
+async function getProducts(opts: object) {
+	const { data } = await $inst.post("basket/product", { ...opts });
 	return data;
 }
 
-export { getItems, addItem, removeItem };
+export { getBasket, getBasketProduct, getProducts };
