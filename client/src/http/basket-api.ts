@@ -1,7 +1,7 @@
-import { $inst } from "./index";
+import { $authInstance, $inst } from "./index";
 
 async function getItems(opts: object) {
-	const { data } = await $inst.post("basket/", { ...opts });
+	const { data } = await $authInstance.post("basket/", { ...opts });
 	return data;
 }
 
