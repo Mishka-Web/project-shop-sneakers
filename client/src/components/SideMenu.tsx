@@ -1,19 +1,17 @@
-import { useVisibleMenuStore } from "../store";
+import { useBasketStore, useVisibleMenuStore } from "../store";
 import boxImg from "../assets/images/box.png";
 import { useNavigate } from "react-router-dom";
 import BasketProdCard from "./BasketProdCard";
-import { getItems } from "../http/basket-api";
 import { useEffect, useState } from "react";
 
 export default function SideMenu() {
 	const { isVisible: menuIsVisible, unVisible: menuUnVisible } =
 		useVisibleMenuStore();
-	const [products, setProducts] = useState([]);
+	const { items: basketItems } = useBasketStore();
+	const [products, setProducts] = useState(basketItems || []);
 	const navigate = useNavigate();
 
-	useEffect(() => {
-		getItems({id: 1}).then((data) => setProducts(data));
-	}, []);
+	useEffect(() => setProducts(basketItems), [basketItems, products]);
 
 	return (
 		<>
@@ -69,17 +67,8 @@ export default function SideMenu() {
 									<path
 										d="M14.7144 7L1.00007 7"
 										stroke="white"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
 									/>
-									<path
-										d="M7 13L1 7L7 1"
-										stroke="white"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
+									<path d="M7 13L1 7L7 1" stroke="white" />
 								</svg>
 								Вернуться назад
 							</button>
@@ -106,19 +95,10 @@ export default function SideMenu() {
 									viewBox="0 0 16 14"
 									fill="none"
 								>
-									<path
-										d="M1 7H14.7143"
-										stroke="white"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
-									/>
+									<path d="M1 7H14.7143" stroke="white" />
 									<path
 										d="M8.71436 1L14.7144 7L8.71436 13"
 										stroke="white"
-										stroke-width="2"
-										stroke-linecap="round"
-										stroke-linejoin="round"
 									/>
 								</svg>
 							</button>

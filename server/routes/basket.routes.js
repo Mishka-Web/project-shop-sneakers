@@ -3,8 +3,8 @@ const router = new Router();
 
 const controller = require('../controllers/basket.controller');
 
-router.post('/add', controller.addItem);
-router.post('/:id', controller.removeItem);
-router.post('/', controller.getItems);
+router.post('/', controller.getBasket);
+router.post('/basket-product', controller.getBasketProduct);
+router.post('/product', controller.getProducts);
 
 module.exports = router;
